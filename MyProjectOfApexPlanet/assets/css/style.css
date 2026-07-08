@@ -1,0 +1,1063 @@
+:root {
+    --bg: #f0fdfa;
+    --surface: #ffffff;
+    --border: #99f6e4;
+    --text: #134e4a;
+    --text2: #0f766e;
+    --text3: #5eead4;
+    --nav: #0f172a;
+    --nav-border: #1e293b;
+    --primary: #6366f1;
+    --teal: #0d9488;
+    --accent: #a78bfa;
+    --green: #059669;
+    --red: #dc2626;
+    --amber: #d97706;
+}
+
+body.dark {
+    --bg: #0d1117;
+    --surface: #0f1f1e;
+    --border: #134e4a;
+    --text: #ccfbf1;
+    --text2: #5eead4;
+    --text3: #0d9488;
+    --nav: #020a09;
+    --nav-border: #134e4a;
+    --primary: #818cf8;
+    --teal: #14b8a6;
+    --accent: #c4b5fd;
+    --green: #34d399;
+    --red: #f87171;
+    --amber: #fbbf24;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: var(--nav);
+    padding: 13px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--nav-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-brand a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+}
+
+.brand-logo {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #6366f1, #0d9488);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.brand-name {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.brand-name span {
+    background: linear-gradient(90deg, #a78bfa, #5eead4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.navbar-menu a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 7px 12px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.navbar-menu a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+.navbar-menu a.active {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+}
+
+.dark-toggle {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #c4b5fd;
+    padding: 7px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+    margin-left: 4px;
+}
+
+.dark-toggle:hover {
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+}
+
+/* ===== HERO ===== */
+.hero {
+    background: linear-gradient(135deg, #1e1b4b 0%, #134e4a 100%);
+    padding: 36px 20px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body.dark .hero {
+    background: linear-gradient(135deg, #0f0e1a 0%, #020a09 100%);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    background: rgba(99,102,241,0.15);
+    border-radius: 50%;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    width: 80px;
+    height: 80px;
+    background: rgba(13,148,136,0.15);
+    border-radius: 50%;
+}
+
+.hero h1 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    position: relative;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, #a78bfa, #5eead4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 16px;
+    flex: 1;
+    width: 100%;
+}
+
+/* ===== STATS ===== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 12px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.stat-icon {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.stat-num {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6366f1, #0d9488);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+    font-size: 11px;
+    color: var(--text2);
+    margin-top: 2px;
+}
+
+/* ===== PROGRESS ===== */
+.progress-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+}
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text2);
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    background: var(--border);
+    border-radius: 20px;
+    height: 7px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: linear-gradient(90deg, #6366f1, #0d9488);
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+body.dark .progress-fill {
+    background: linear-gradient(90deg, #818cf8, #14b8a6);
+}
+
+/* ===== SECTION HEADER ===== */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* ===== TASK CARDS ===== */
+.todo-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 14px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    transition: all 0.2s;
+}
+
+.todo-item:hover { 
+    border-color: #4b4db9;
+    box-shadow: 0 2px 12px rgba(99,102,241,0.1);
+}
+
+.todo-item.completed { opacity: 0.55; }
+
+.todo-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.todo-title.done {
+    text-decoration: line-through;
+    color: var(--text3);
+}
+
+.todo-meta {
+    font-size: 11px;
+    color: var(--text3);
+    margin-top: 2px;
+}
+
+.todo-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn:hover { opacity: 0.86; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn-primary { 
+    background: linear-gradient(135deg, #6366f1, #0d9488);
+    color: #fff;
+}
+
+.btn-green { background: #059669; color: #fff; }
+.btn-red { background: #dc2626; color: #fff; }
+.btn-amber { background: #d97706; color: #fff; }
+.btn-outline { background: var(--surface); color: var(--text2); border: 1px solid var(--border); }
+.btn-block { width: 100%; justify-content: center; }
+.btn-sm { padding: 5px 10px; font-size: 11px; }
+
+/* ===== BADGES ===== */
+.badge {
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.badge-pending { background: #dbd7ef; color: #4c1d95; }
+.badge-completed { background: #d1fae5; color: #065f46; }
+
+body.dark .badge-pending { background: #1e1b4b; color: #a5b4fc; }
+body.dark .badge-completed { background: #064e3b; color: #6ee7b7; }
+
+/* ===== FORMS ===== */
+.card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid var(--border);
+    margin-bottom: 14px;
+}
+
+.form-group { margin-bottom: 14px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px 13px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    background: var(--bg);
+    color: var(--text);
+    transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+}
+
+/* ===== ALERTS ===== */
+.alert {
+    padding: 11px 14px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-left: 3px solid;
+}
+
+.alert-success { background: #d1fae5; color: #065f46; border-color: #10b981; }
+.alert-error { background: #fee2e2; color: #991b1b; border-color: #dc2626; }
+
+body.dark .alert-success { background: #064e3b; color: #6ee7b7; }
+body.dark .alert-error { background: #450a0a; color: #fca5a5; }
+
+/* ===== AUTH ===== */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 88vh;
+    padding: 20px 16px;
+    background: var(--bg);
+}
+
+.auth-box {
+    background: var(--surface);
+    padding: 30px 28px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 380px;
+}
+/* ==========================================================================
+   INTERFACE ACCESSIBILITY UPDATE: BORDER CONTRAST ENHANCEMENT
+   ========================================================================== */
+
+/* Target all core application wrappers to deepen their structural contours */
+.todo-item, .stat-card, .sidebar-progress-card, .card {
+    border: 1.5px solid hsl(175, 39%, 50%) !important; /* Deepened slate-teal border for explicit separation */
+    box-shadow: 0 4px 10px #2472720a !important; /* Balanced low-intensity soft shadow */
+}
+.auth-logo {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #6366f1, #0d9488);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 17px;
+    margin: 0 auto 14px;
+}
+
+.auth-box h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.auth-box .auth-sub {
+    color: var(--text2);
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.auth-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 16px 0;
+}
+
+/* ===== BOTTOM NAV (MOBILE) ===== */
+.bottom-nav {
+    display: none;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 10px 0 14px;
+    grid-template-columns: repeat(4, 1fr);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+.bnav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    color: var(--text3);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bnav-item.active { color: #6366f1; }
+.bnav-icon { font-size: 20px; }
+
+/* ===== EMPTY STATE ===== */
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.empty-state h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--text); }
+.empty-state p { color: var(--text2); margin-bottom: 18px; font-size: 13px; }
+
+/* ===== FOOTER ===== */
+.footer {
+    background: var(--nav);
+    color: #64748b;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 12px;
+    margin-top: auto;
+    border-top: 1px solid var(--nav-border);
+    padding-bottom: 80px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 768px) {
+    .navbar { padding: 13px 30px; }
+    .hero { padding: 48px 30px 40px; }
+    .hero h1 { font-size: 28px; }
+    .container { padding: 0 20px; margin: 28px auto; }
+    .stats-grid { gap: 14px; }
+    .stat-card { padding: 18px; text-align: left; }
+    .stat-num { font-size: 28px; }
+    .stat-label { font-size: 12px; }
+    .todo-item { padding: 14px 16px; }
+    .footer { padding-bottom: 14px; }
+    .bottom-nav { display: none !important; }
+}
+
+@media (max-width: 767px) {
+    .bottom-nav { display: grid; }
+    .navbar-menu a:not(.dark-toggle) { display: none; }
+    .container { padding-bottom: 80px; }
+}
+
+@media (max-width: 400px) {
+    .hero h1 { font-size: 20px; }
+    .stats-grid { gap: 6px; }
+}
+
+/* ==========================================================================
+   TASKFLOW PLATFORM UPGRADE: RESPONSIVE TWO-COLUMN SYSTEM ARCHITECTURE
+   ========================================================================== */
+
+/* Upgraded Interactive UI Control Dimensions */
+.btn {
+    padding: 12px 24px !important; /* Globally increased padding for structural visibility */
+    font-size: 14px !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn-sm {
+    padding: 6px 14px !important; /* Standard small scale overrides */
+    font-size: 12px !important;
+}
+
+/* Enhanced Section Content Headers */
+.section-title {
+    font-size: 22px !important; /* Scaled header visibility size layout */
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text);
+}
+
+/* Navbar Embedded Search Optimization Layout */
+.navbar-search-wrapper {
+    flex: 0 1 420px;
+    margin: 0 20px;
+    position: relative;
+}
+
+.nav-search-form {
+    display: flex;
+    align-items: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4px 12px;
+    width: 100%;
+}
+
+.search-icon-symbol {
+    margin-right: 8px;
+    font-size: 14px;
+    user-select: none;
+}
+
+.nav-search-form input {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--text) !important;
+    margin-bottom: 0 !important;
+    padding: 6px 0 !important;
+    width: 100%;
+}
+
+.clear-search-btn {
+    color: var(--text3);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 2px 6px;
+}
+
+.hero-quote {
+    font-size: 16px;
+    font-style: italic;
+    color: var(--text3);
+    min-height: 24px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.hero-status {
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+/* ==========================================================================
+   LAPTOP AND ULTRA-WIDE WORKSTATION VIEW BREAKPOINTS (Width >= 1024px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+    /* Converts main view stream from stack to clean layout split column flow */
+    .dashboard-layout {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+        margin-top: 20px;
+    }
+
+    /* Left Stream takes up major horizontal viewport availability space */
+    .main-content-left {
+        flex: 1;
+        min-width: 0;
+    }
+
+    /* Sidebar locks safely on right side boundary coordinates */
+    .sidebar-right {
+        width: 320px;
+        position: sticky;
+        top: 90px; /* Synchronized alignment cleanly past sticking navbar */
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Custom Right Sidebar Matrix Grid Refactoring */
+    .stats-sidebar-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        width: 100%;
+    }
+
+    /* Forces Total Card container element to break line layout rules by spanning both columns */
+    .total-card {
+        grid-column: 1 / span 2;
+        text-align: center;
+    }
+
+    .pagination-container {
+        display: flex;
+        justify-content: flex-start;
+        gap: 6px;
+        margin-top: 20px;
+    }
+}
+
+/* Small Viewport Media Layout Safeguards */
+@media (max-width: 1023px) {
+    .navbar-search-wrapper {
+        display: none; /* Safely hides header searches on mobile screen bounds to avoid overlaps */
+    }
+    .stats-sidebar-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+}
+/* ==========================================================================
+   FIXED STICKY ASYMMETRIC TWO-COLUMN GRID SYSTEM DESIGN
+   ========================================================================== */
+
+/* Upgraded Typography & Base Interactive Element Sizes */
+.btn {
+    padding: 12px 24px !important; 
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+.btn-sm {
+    padding: 6px 14px !important; 
+    font-size: 12px !important;
+}
+
+.section-title {
+    font-size: 24px !important; /* Slightly increased header size visibility */
+    font-weight: 800 !important;
+    color: var(--text);
+}
+
+/* Navbar Search Input Component Properties */
+.navbar-search-wrapper {
+    flex: 0 1 420px;
+    margin: 0 20px;
+}
+
+.nav-search-form {
+    display: flex;
+    align-items: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4px 12px;
+}
+
+.search-icon-symbol {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.nav-search-form input {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--text) !important;
+    margin-bottom: 0 !important;
+    padding: 6px 0 !important;
+}
+
+/* Hero Section Typography Enhancements */
+.hero-quote {
+    font-size: 17px;
+    font-style: italic;
+    color: var(--text3);
+    min-height: 24px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* ==========================================================================
+   RESPONSIVE PHONES BREAKPOINT DEFAULTS (Screen sizes under Laptop widths)
+   ========================================================================== */
+@media (max-width: 1023px) {
+    .navbar-search-wrapper {
+        display: none; /* Hides embedded search inputs on smaller screens */
+    }
+    
+    .dashboard-layout {
+        display: flex;
+        flex-direction: column; /* Force vertical stacking on mobile viewports */
+        gap: 20px;
+    }
+
+    .stats-sidebar-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Equal width horizontal row layout for phones */
+        gap: 10px;
+    }
+    
+    .sidebar-right {
+        order: 1; /* Places metrics cards directly above your task items feed */
+    }
+    
+    .main-content-left {
+        order: 2; /* Positions task lists underneath statistical overviews */
+    }
+}
+
+/* ==========================================================================
+   LAPTOPS AND LARGE HIGH-RESOLUTION DISPLAYS BREAKPOINT (Width >= 1024px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+    .dashboard-layout {
+        display: flex;
+        flex-direction: row-reverse; /* Reverses execution: forces Sidebar Right, Main Content Left */
+        gap: 40px;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    /* Left Column Configuration: Expandable / Scrollable Task Stream Feed */
+    .main-content-left {
+        flex: 1;
+        min-width: 0;
+    }
+
+    /* Right Column Configuration: Fixed Stable Sidebar Panel Container */
+    .sidebar-right {
+        width: 340px; 
+        position: sticky;
+        top: 100px; /* Locks components visually in place when scrolling */
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Grid Layout for Internal Analytical Cards Inside Sidebar */
+    .stats-sidebar-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2-column grid setup */
+        gap: 15px;
+        width: 100%;
+    }
+
+    /* Force Total Card container to expand across both layout rows */
+    .total-card {
+        grid-column: 1 / span 2; 
+        text-align: center;
+        padding: 20px !important;
+    }
+
+    /* Done and Pending Cards automatically align side-by-side inside remaining lanes */
+    .done-card, .pending-card {
+        padding: 15px !important;
+    }
+
+    /* Sidebar Integrated Progress Panel Component */
+    .sidebar-progress-card {
+        margin-top: 5px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .pagination-container {
+        display: flex;
+        justify-content: flex-start;
+        gap: 6px;
+        margin-top: 25px;
+    }
+}
+/* ==========================================================================
+   LAPTOPS AND LARGE HIGH-RESOLUTION DISPLAYS BREAKPOINT (Width >= 1024px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+    
+    /* 🚀 FIX: Expand the container to utilize the full screen width smoothly */
+    .container {
+        width: 94% !important;        /* Uses 94% of the laptop monitor width */
+        max-width: 1650px !important;  /* Sets a generous maximum edge boundary limit */
+        margin: 0 auto !important;     /* Centers the expanded container on ultra-wide monitors */
+        padding: 0 20px !important;
+    }
+
+    /* Keeps your asymmetric two-column structure perfectly proportioned */
+    .dashboard-layout {
+        display: flex;
+        flex-direction: row-reverse;   /* Fixed Stable Sidebar on Right, Tasks on Left */
+        gap: 40px;                     /* Generous professional separation spacing */
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    /* Left Column: Expandable Task Feed stream uses all remaining width space */
+    .main-content-left {
+        flex: 1;
+        min-width: 0;
+    }
+
+    /* Right Column: Stable Fixed Content Panel */
+    .sidebar-right {
+        width: 360px;                  /* Marginally widened for ideal proportion balance */
+        position: sticky;
+        top: 100px;                    /* Locks sidebar in place on screen during scroll */
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    /* 2-Column internal card setup inside the stable sidebar */
+    .stats-sidebar-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        width: 100%;
+    }
+
+    /* Total Card expands seamlessly across both side-by-side columns */
+    .total-card {
+        grid-column: 1 / span 2; 
+        text-align: center;
+        padding: 24px !important;
+    }
+
+    .done-card, .pending-card {
+        padding: 18px !important;
+    }
+
+    /* Sticky Sidebar Integrated Progress Bar Container styling */
+    .sidebar-progress-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* ==========================================================================
+   COMPONENT REFINEMENT: LEFT COLUMN CALL-TO-ACTION BUTTON SCALING
+   ========================================================================== */
+
+/* Scoped selector to isolate the "Add Task" link strictly within the section header */
+.main-content-left .section-header .btn-sm {
+    padding: 13px 26px !important;       /* Increases target tap area footprint */
+    font-size: 14px !important;          /* Adjusts text visibility proportion */
+    border-radius: 8px !important;       /* Syncs corner curvature curves cleanly */
+    letter-spacing: -0.2px !important;   /* Hardens typographical sharpness */
+}
+
+/* Enhances button interaction fidelity on cursor pointer hovers */
+.main-content-left .section-header .btn-sm:hover {
+    filter: brightness(1.15);            /* Slight vibrant glow shift */
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+/* ==========================================================================
+   LAPTOPS AND LARGE HIGH-RESOLUTION DISPLAYS BREAKPOINT (Width >= 1024px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+    
+    /* 🚀 FIX: Expand the container to utilize the full screen width smoothly */
+    .container {
+        width: 94% !important;
+        max-width: 1650px !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
+    }
+
+    /* 🌟 HERO SECTION ENLARGEMENT OVERRIDES */
+    .hero {
+        padding: 60px 40px 55px !important; /* Scaled structural padding height */
+    }
+
+    .hero h1 {
+        font-size: 36px !important;         /* Enlarged greeting header size */
+        margin-bottom: 14px !important;     /* Proportionate layout spacing gap */
+        letter-spacing: -0.8px !important;  /* Hardens typography contour focus */
+    }
+
+    .hero-quote {
+        font-size: 20px !important;         /* Scaled focus quote visibility */
+        margin-bottom: 18px !important;
+        max-width: 800px !important;        /* Prevents text lines from stretching too wide */
+        margin-left: auto !important;       /* Centers the quote text properly */
+        margin-right: auto !important;
+    }
+
+    .hero-status {
+        font-size: 16px !important;         /* Clearer count presentation tracking */
+        margin-bottom: 24px !important;
+    }
+
+    /* Scales up the interactive buttons located inside the banner wrapper */
+    .hero-btns .btn {
+        padding: 14px 32px !important;      /* Imposes massive desktop touch target */
+        font-size: 15px !important;         /* Crisp readability size scale */
+    }
+
+    /* ======================================================================
+       DASHBOARD ASYMMETRIC TWO-COLUMN FLEXGRID ALIGNMENTS
+       ====================================================================== */
+    .dashboard-layout {
+        display: flex;
+        flex-direction: row-reverse;   /* Fixed Stable Sidebar on Right, Tasks on Left */
+        gap: 40px;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    .main-content-left {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .sidebar-right {
+        width: 360px;
+        position: sticky;
+        top: 100px;                    /* Locks sidebar in place during scrolling */
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .stats-sidebar-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        width: 100%;
+    }
+
+    .total-card {
+        grid-column: 1 / span 2; 
+        text-align: center;
+        padding: 24px !important;
+    }
+
+    .done-card, .pending-card {
+        padding: 18px !important;
+    }
+
+    .sidebar-progress-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+}
